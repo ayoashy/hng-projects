@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h3>Ashoka</h3>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#tech-goals">Tech Goals</a></li>
+                <li><a href="#about-me">About Me</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    
+    <aside class="sidebar">
+        <button class="close-btn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="#tech-goals">Tech Goals</a></li>
+            <li><a href="#about-me">About Me</a></li>
+        </ul>
+    </aside>
+    
+    <!-- <section id="tech-goals">
+        <h2>My Tech Goals for the Next 2 Years</h2>
+        <ul>
+            <li>Master React and build complex applications</li>
+            <li>Contribute to open-source projects</li>
+            <li>Enhance my skills in backend development</li>
+            <li>Become proficient in DevOps practices</li>
+        </ul>
+    </section> -->
+
+    <section id="tech-goals">
+    <h2>My Tech Goals for the Next 2 Years</h2>
+    <p class="tech-goals-paragraph">
+        My goals are to build complex applications with React, meet new people in and around the tech world, work for an international company, contribute to open source, and become very comfortable with frontend development.
+    </p>
+    </section>
+
+
+<section id="about-me">
+    <h2>About Me</h2>
+    <div class="about-me-content">
+        <div class="about-me-info">
+            <p><strong>Slack Name:</strong> <span data-testid="slackDisplayName">Ashoka</span></p>
+            <p><strong>Slack Email:</strong> <span data-testid="slackEmail">dev.ayoashy@gmail.com</span></p>
+            <p><strong>Current Time in UTC:</strong> <span data-testid="currentTimeUTC" id="time-utc"></span></p>
+            <p><strong>Current Day:</strong> <span data-testid="currentDay" id="day-of-week"></span></p>
+        </div>
+        <div class="about-me-image">
+            <img src="./assets/20211111_175152.jpg" alt="Slack Profile Picture" data-testid="slackProfilePicture">
+        </div>
+    </div>
+</section>
+
+
+
+
+    
+<footer>
+    <div class="footer-content">
+        <p>Useful Links:</p>
+        <ul>
+            <li><a href="http://hng.tech/learn" data-testid="hngLink">HNG Internship</a></li>
+            <li><a href="http://keyword.dog" data-testid="keywordLink">Keyword Dog</a></li>
+            <li><a href="http://scrapeanyweb.site" data-testid="scrapeanywebLink">Scrape Any Web</a></li>
+        </ul>
+    </div>
+</footer>
+
+    
+    <script>
+        // JavaScript to display current time in UTC and current day of the week
+        function updateTimeAndDay() {
+            const now = new Date();
+            const utcTime = now.toUTCString().split(' ')[4];
+            const dayOfWeek = now.toLocaleString('en-US', { weekday: 'long' });
+            
+            document.getElementById('time-utc').textContent = utcTime;
+            document.getElementById('day-of-week').textContent = dayOfWeek;
+        }
+
+        updateTimeAndDay();
+        setInterval(updateTimeAndDay, 1000); // Update every second
+
+        // JavaScript to handle hamburger menu
+   const hamburger = document.querySelector('.hamburger');
+   const sidebar = document.querySelector('.sidebar');
+   const closeBtn = document.querySelector('.close-btn');
+   const sidebarLinks = document.querySelectorAll('.sidebar-links a');
+
+   hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+   });
+
+   closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+   });
+
+// Close sidebar when a link is clicked
+   sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+    });
+   });
+    </script>
+</body>
+</html>
